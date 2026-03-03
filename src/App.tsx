@@ -1,10 +1,11 @@
-import { Provider as ReduxProvider} from "react-redux";
+import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./store";
+import { TasksList } from "./components/TasksList";
 
 export default function App() {
-  return(
+  return (
     <ReduxProvider store={store}>
-      <h1>Bem vindo ao Redux Toolkit</h1>
+      <TasksList />
     </ReduxProvider>
   );
 }
