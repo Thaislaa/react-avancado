@@ -3,9 +3,11 @@ import { persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 
 import taskReducer from "./slices/tasksSlice"
+import repositoriesReducer from "./slices/repositoriesSlices"
 
 const rootReducer = combineReducers({
-    tasks: taskReducer
+    tasks: taskReducer,
+    repositories: repositoriesReducer
 });
 
 export const persistedReducer = persistReducer({
