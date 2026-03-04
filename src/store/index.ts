@@ -1,11 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
-import tasksReducer from "./slices/tasksSlice"
+
+import { persistStore } from 'redux-persist'
+import { persistedReducer } from "./rootReducer"
 
 export const store = configureStore({
-    reducer: {
-        tasks: tasksReducer
-    },
-})
+    reducer: persistedReducer,
+    middleware: (defaultMiddleware) => defaultMiddleware({
+        serializableCheck: false
+    })
+});
+
+export const persistedStore = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>
 
